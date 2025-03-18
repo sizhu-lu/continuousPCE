@@ -1,6 +1,6 @@
-#' Point Estimator for Treatment Effects
+#' Point estimator for principal causal effects
 #'
-#' This function estimates treatment effects using principal scores, treatment
+#' This function estimates principal causal effects using principal scores, treatment
 #' probabilities, and outcome models. The method combines an efficient influence
 #' function (EIF) estimator, a treatment probability (TP) estimator, and a
 #' potential outcome (PO) estimator. The function integrates over the scores

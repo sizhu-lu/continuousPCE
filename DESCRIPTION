@@ -1,0 +1,20 @@
+Package: continuousPCE
+Type: Package
+Title: Principal causal effect in principal stratification with continuous post-treatment variables
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Jane", "Doe",
+      email = "jane@example.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: This R package is for principal causal effect estimation with continuous post-treatment variables.
+License: BSD_2_clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    abind,
+    np,
+    pracma
+RoxygenNote: 7.2.3
