@@ -23,7 +23,7 @@ boot(
 
 \item{X}{A matrix of covariates.}
 
-\item{S}{A numeric vector representing the observed scores.}
+\item{S}{A numeric vector representing the post-treatment variable.}
 
 \item{Y}{A numeric vector of outcomes.}
 
@@ -36,7 +36,7 @@ Default is 100.}
 \item{copula_type}{A string indicating the type of copula to be used.
 Default is 'gaussian'.}
 
-\item{rho}{A numeric parameter for the copula, default is 0.}
+\item{rho}{A numeric parameter for the copula, the correlation coefficient, default is 0.}
 
 \item{weighting_function_vectorized}{A vectorized weighting function used in
 the calculation of estimators. Default is `identity_weighting_function_vectorized`.}
@@ -46,7 +46,7 @@ estimators. Default is `identity_g_function_vectorized`.}
 }
 \value{
 A list with the following elements:
-\item{point_est}{The point estimates for treatment and control effects,
+\item{point_est}{The point estimates for projection coefficients,
 as returned by the `point_estimator` function.}
 \item{boot_est}{A matrix of bootstrap estimates across the `n_boot` iterations.}
 \item{res}{A matrix with two rows: the first row contains the point estimates,
@@ -54,9 +54,9 @@ and the second row contains the bootstrap standard errors.}
 }
 \description{
 This function performs nonparametric bootstrap to estimate the standard errors
-of treatment effect estimates. The bootstrap samples are drawn with replacement
+of projection coefficients of principal causal effect estimators. The bootstrap samples are drawn with replacement
 from the data, and for each sample, the `point_estimator` function is used to
-estimate the treatment effects. The function returns both the point estimates and
+estimate the projection coefficients. The function returns both the point estimates and
 the bootstrap standard errors.
 }
 \examples{

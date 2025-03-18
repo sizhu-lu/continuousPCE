@@ -1,29 +1,28 @@
 #' Point estimator for principal causal effects
 #'
-#' This function estimates principal causal effects using principal scores, treatment
+#' This function estimates principal causal effects using principal densities, treatment
 #' probabilities, and outcome models. The method combines an efficient influence
-#' function (EIF) estimator, a treatment probability (TP) estimator, and a
-#' potential outcome (PO) estimator. The function integrates over the scores
-#' to compute point estimates for both treatment effects (eta1) and control
-#' effects (eta0).
+#' function estimator (eif), a treatment probability plus principal density estimator (tp_pd), and a
+#' principal density plus outcome modeling estimator (pd_om). The function integrates over possible
+#' values of the post-treatment variable to compute point estimates for the coefficients eta1 and eta0.
 #'
 #' @param Z A numeric vector indicating the treatment assignment (1 for treatment,
 #' 0 for control).
 #' @param X A matrix of covariates.
-#' @param S A numeric vector representing the observed scores.
+#' @param S A numeric vector representing the post-treatment variable.
 #' @param Y A numeric vector of outcomes.
 #' @param n_divisions Integer specifying the number of divisions for integration.
 #' Default is 100.
 #' @param copula_type A string indicating the type of copula to be used.
 #' Default is 'gaussian'.
-#' @param rho A numeric parameter for the copula, default is 0.
+#' @param rho A numeric parameter for the copula, the correlation coefficient, default is 0.
 #' @param weighting_function_vectorized A vectorized weighting function used in
 #' the calculation of estimators. Default is `identity_weighting_function_vectorized`.
 #' @param g_function_vectorized A vectorized g-function used in the calculation of
 #' estimators. Default is `identity_g_function_vectorized`.
 #'
-#' @return A numeric vector of the point estimates for treatment and control effects.
-#' The vector contains the differences between the estimators for eta1 and eta0, for EIF, TP_PD, PD_OM models.
+#' @return A numeric vector of the point estimates for the projection coefficients.
+#' The vector contains the differences between the estimators for eta1 and eta0, for eif, tp_pd, pd_om estimators
 #'
 #' @examples
 #' # Example usage
@@ -327,18 +326,19 @@ point_estimator <- function(Z,
   return(result)
 }
 
+
 #' Nonparametric Bootstrap Estimation for Treatment Effects
 #'
 #' This function performs nonparametric bootstrap to estimate the standard errors
-#' of treatment effect estimates. The bootstrap samples are drawn with replacement
+#' of projection coefficients of principal causal effect estimators. The bootstrap samples are drawn with replacement
 #' from the data, and for each sample, the `point_estimator` function is used to
-#' estimate the treatment effects. The function returns both the point estimates and
+#' estimate the projection coefficients. The function returns both the point estimates and
 #' the bootstrap standard errors.
 #'
 #' @param Z A numeric vector indicating the treatment assignment (1 for treatment,
 #' 0 for control).
 #' @param X A matrix of covariates.
-#' @param S A numeric vector representing the observed scores.
+#' @param S A numeric vector representing the post-treatment variable.
 #' @param Y A numeric vector of outcomes.
 #' @param n_boot Integer specifying the number of bootstrap iterations.
 #' Default is 500.
@@ -346,14 +346,14 @@ point_estimator <- function(Z,
 #' Default is 100.
 #' @param copula_type A string indicating the type of copula to be used.
 #' Default is 'gaussian'.
-#' @param rho A numeric parameter for the copula, default is 0.
+#' @param rho A numeric parameter for the copula, the correlation coefficient, default is 0.
 #' @param weighting_function_vectorized A vectorized weighting function used in
 #' the calculation of estimators. Default is `identity_weighting_function_vectorized`.
 #' @param g_function_vectorized A vectorized g-function used in the calculation of
 #' estimators. Default is `identity_g_function_vectorized`.
 #'
 #' @return A list with the following elements:
-#' \item{point_est}{The point estimates for treatment and control effects,
+#' \item{point_est}{The point estimates for projection coefficients,
 #' as returned by the `point_estimator` function.}
 #' \item{boot_est}{A matrix of bootstrap estimates across the `n_boot` iterations.}
 #' \item{res}{A matrix with two rows: the first row contains the point estimates,

@@ -22,7 +22,7 @@ point_estimator(
 
 \item{X}{A matrix of covariates.}
 
-\item{S}{A numeric vector representing the observed scores.}
+\item{S}{A numeric vector representing the post-treatment variable.}
 
 \item{Y}{A numeric vector of outcomes.}
 
@@ -32,7 +32,7 @@ Default is 100.}
 \item{copula_type}{A string indicating the type of copula to be used.
 Default is 'gaussian'.}
 
-\item{rho}{A numeric parameter for the copula, default is 0.}
+\item{rho}{A numeric parameter for the copula, the correlation coefficient, default is 0.}
 
 \item{weighting_function_vectorized}{A vectorized weighting function used in
 the calculation of estimators. Default is `identity_weighting_function_vectorized`.}
@@ -41,16 +41,15 @@ the calculation of estimators. Default is `identity_weighting_function_vectorize
 estimators. Default is `identity_g_function_vectorized`.}
 }
 \value{
-A numeric vector of the point estimates for treatment and control effects.
-The vector contains the differences between the estimators for eta1 and eta0, for EIF, TP_PD, PD_OM models.
+A numeric vector of the point estimates for the projection coefficients.
+The vector contains the differences between the estimators for eta1 and eta0, for eif, tp_pd, pd_om estimators
 }
 \description{
-This function estimates principal causal effects using principal scores, treatment
+This function estimates principal causal effects using principal densities, treatment
 probabilities, and outcome models. The method combines an efficient influence
-function (EIF) estimator, a treatment probability (TP) estimator, and a
-potential outcome (PO) estimator. The function integrates over the scores
-to compute point estimates for both treatment effects (eta1) and control
-effects (eta0).
+function estimator (eif), a treatment probability plus principal density estimator (tp_pd), and a
+principal density plus outcome modeling estimator (pd_om). The function integrates over possible
+values of the post-treatment variable to compute point estimates for the coefficients eta1 and eta0.
 }
 \examples{
 # Example usage
