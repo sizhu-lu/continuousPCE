@@ -10,8 +10,8 @@ You can install the latest version of **continuousPCE** from GitHub using `devto
 
 ```r
 # Install devtools if not already installed
-install.packages("devtools")
-library("devtools")
+install.packages(devtools)
 
 # Install the package from GitHub
+library("devtools")
 devtools::install_github("sizhu-lu/continuousPCE")
