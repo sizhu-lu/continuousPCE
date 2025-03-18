@@ -25,17 +25,13 @@ A list containing two components:
 }
 \description{
 This function computes the gradients of the Gaussian copula with respect to
-both components `u` and `v`. The gradients represent how sensitive the copula
-values are to changes in `u` and `v`. These gradients are useful in various
-optimization and modeling tasks, such as in maximum likelihood estimation for
-copula-based models.
+both components `u` and `v`.
 }
 \details{
 The gradient of the Gaussian copula is calculated with respect to
 both `u` and `v`. For each element of `u` and `v`, the function computes the
 partial derivatives of the Gaussian copula with respect to the first and
-second inputs, respectively. This is useful when working with the Gaussian
-copula in optimization algorithms or when performing sensitivity analysis.
+second inputs, respectively.
 
 The gradients are computed as follows: \deqn{c_u = \frac{\partial
 C(u,v)}{\partial u} = \frac{C(u,v) \cdot \left( \rho y_v - \rho^2 x_u

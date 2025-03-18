@@ -1,8 +1,6 @@
-#' Conditional Integral Calculation for Copula Models
+#' Compute the Double Integration
 #'
-#' This function computes a conditional integral based on a copula model,
-#' typically used in financial or econometric models involving copula-based
-#' dependencies.
+#' This function computes the double integral for eif estimator construction.
 #'
 #' @param s1 A numeric vector of size \eqn{n_{s1}} representing the first set of
 #'   values.
@@ -18,29 +16,19 @@
 #'   cumulative distribution function (CDF) of s1.
 #' @param psp_s0_cdf A matrix of size (\eqn{n_{s0}}, n) representing the
 #'   cumulative distribution function (CDF) of s0.
-#' @param Z A numeric vector of size n  representing the first condition (e.g.,
-#'   treatment assignment indicator).
-#' @param Tp A numeric value representing the total probability for the positive
-#'   outcome (e.g., treatment or event probability).
-#' @param S A numeric vector of size n , typically representing time or a
-#'   sequential index (used in conjunction with `Z`).
+#' @param Z A numeric vector of size n representing the treatment assignment indicator.
+#' @param Tp A numeric value representing the fitted treatment probability.
+#' @param S A numeric vector of size n representing the post-treatment variable.
 #' @param copula_type A character string indicating the type of copula to be
 #'   used. Defaults to "independent". Other options are "gaussian" and "fgm".
 #' @param rho A numeric value between -1 and 1 representing the correlation
-#'   parameter for copula models. Default is 0 (for independence).
+#'   coefficient for copula models. Default is 0 (for independence).
 #'
 #' @return A numeric array of size (\eqn{n_{s1}}, \eqn{n_{s0}}, n), representing
 #'   the weighted and transformed probabilities of the copula model after
 #'   applying the integral calculations.
 #'
-#' @details The function computes the conditional integral for a copula-based
-#' model with specified dependencies between `s1` and `s0`. It incorporates the
-#' given probability values for both `s1` and `s0`, their CDFs, and joint
-#' probabilities. It also applies the specified copula (independent, gaussian,
-#' or fgm) to model dependencies between the variables. The integral is
-#' calculated through a series of matrix operations, utilizing the copula
-#' function, its gradient, and expansions for handling interactions between the
-#' variables.
+#' @details The function computes the double integral for eif estimator construction.
 #'
 #' Specifically:
 #' - The function calculates the copula weights (`l1_B`) and the copula gradient.
@@ -94,12 +82,6 @@ int2 <- function(s1,
 
 #' Compute the Integral over s0
 #'
-#' This function computes a component of an integral related to the copula-based
-#' modeling framework. It involves calculating a weighted sum over s0, using the
-#' given copula and correlation parameters. The result is used in the context of
-#' a model that involves score-based functions or copula-based likelihood
-#' estimation.
-#'
 #' @param s1 A numeric vector of size \eqn{n_{s1}} representing the first set of
 #'   values.
 #' @param psp_s0 A matrix of size (\eqn{n_{s0}}, n), representing the
@@ -108,16 +90,13 @@ int2 <- function(s1,
 #'   cumulative distribution function (CDF) of s1.
 #' @param psp_s0_cdf A matrix of size (\eqn{n_{s0}}, n) representing the
 #'   cumulative distribution function (CDF) of s0.
-#' @param Z A numeric vector of size n  representing the first condition (e.g.,
-#'   treatment assignment indicator).
-#' @param Tp A numeric value representing the total probability for the positive
-#'   outcome (e.g., treatment or event probability).
-#' @param S A numeric vector of size n , typically representing time or a
-#'   sequential index (used in conjunction with `Z`).
+#' @param Z A numeric vector of size n representing the treatment assignment indicator.
+#' @param Tp A numeric value representing the fitted treatment probability.
+#' @param S A numeric vector of size n representing the post-treatment variable.
 #' @param copula_type A character string indicating the type of copula to be
 #'   used. Defaults to "independent". Other options are "gaussian" and "fgm".
 #' @param rho A numeric value between -1 and 1 representing the correlation
-#'   parameter for copula models. Default is 0 (for independence).
+#'   coefficient for copula models. Default is 0 (for independence).
 #'
 #' @return A matrix of size (\eqn{n_{s0}}, n).
 #'
@@ -162,13 +141,7 @@ int_s0 <- function(s1,
   return(part2 * psp_s0)
 }
 
-#' Compute the Integral over s0
-#'
-#' This function computes a component of an integral related to the copula-based
-#' modeling framework. It involves calculating a weighted sum over s0, using the
-#' given copula and correlation parameters. The result is used in the context of
-#' a model that involves score-based functions or copula-based likelihood
-#' estimation.
+#' Compute the Integral over s1
 #'
 #' @param s0 A numeric vector of size \eqn{n_{s0}} representing the first set of
 #'   values.
@@ -178,16 +151,13 @@ int_s0 <- function(s1,
 #'   cumulative distribution function (CDF) of s1.
 #' @param psp_s0_cdf A matrix of size (\eqn{n_{s0}}, n) representing the
 #'   cumulative distribution function (CDF) of s0.
-#' @param Z A numeric vector of size n  representing the first condition (e.g.,
-#'   treatment assignment indicator).
-#' @param Tp A numeric value representing the total probability for the positive
-#'   outcome (e.g., treatment or event probability).
-#' @param S A numeric vector of size n , typically representing time or a
-#'   sequential index (used in conjunction with `Z`).
+#' @param Z A numeric vector of size n representing the treatment assignment indicator.
+#' @param Tp A numeric value representing the fitted treatment probability.
+#' @param S A numeric vector of size n representing the post-treatment variable.
 #' @param copula_type A character string indicating the type of copula to be
 #'   used. Defaults to "independent". Other options are "gaussian" and "fgm".
 #' @param rho A numeric value between -1 and 1 representing the correlation
-#'   parameter for copula models. Default is 0 (for independence).
+#'   coefficient for copula models. Default is 0 (for independence).
 #'
 #' @return A matrix of size (\eqn{n_{s1}}, n).
 #'

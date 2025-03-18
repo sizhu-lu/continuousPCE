@@ -24,20 +24,13 @@ A three-dimensional numeric array of dimensions `n_s1 x n_s0 x 3`,
 }
 \description{
 This function constructs a three-dimensional array by combining three
-matrices. The resulting array can be used in various multi-dimensional data
-processing or for computing interactions between two sets of input vectors.
-The function utilizes vectorized operations for efficiency, making it
-suitable for large datasets.
+matrices.
 }
 \details{
 The function generates a three-dimensional array by combining three
 components: 1. A matrix where each element of `s1` is repeated for each value
 in `s0`. 2. A matrix where each element of `s0` is repeated for each value in
 `s1`. 3. A matrix filled with ones, serving as a constant dimension.
-
-This operation can be useful in scenarios where multi-dimensional
-interactions or transformations of two sets of data are required, such as in
-copula or statistical modeling.
 }
 \examples{
 # Example: Create a 3D array combining two vectors

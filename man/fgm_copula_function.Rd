@@ -23,9 +23,7 @@ A numeric vector or matrix of copula values corresponding to the
 }
 \description{
 This function computes the value of the Farlie-Gumbel-Morgenstern (FGM)
-copula given two uniform random variables and a correlation parameter. The
-FGM copula is a simple bivariate copula model used to describe dependence
-between two random variables.
+copula given two uniform random variables and a correlation parameter.
 }
 \details{
 The Farlie-Gumbel-Morgenstern (FGM) copula is given by the formula:

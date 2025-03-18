@@ -2,7 +2,7 @@
 % Please edit documentation in R/eif_estimator_utils.R
 \name{int_s1}
 \alias{int_s1}
-\title{Compute the Integral over s0}
+\title{Compute the Integral over s1}
 \usage{
 int_s1(
   s0,
@@ -29,30 +29,23 @@ cumulative distribution function (CDF) of s1.}
 \item{psp_s0_cdf}{A matrix of size (\eqn{n_{s0}}, n) representing the
 cumulative distribution function (CDF) of s0.}
 
-\item{Z}{A numeric vector of size n  representing the first condition (e.g.,
-treatment assignment indicator).}
+\item{Z}{A numeric vector of size n representing the treatment assignment indicator.}
 
-\item{Tp}{A numeric value representing the total probability for the positive
-outcome (e.g., treatment or event probability).}
+\item{Tp}{A numeric value representing the fitted treatment probability.}
 
-\item{S}{A numeric vector of size n , typically representing time or a
-sequential index (used in conjunction with `Z`).}
+\item{S}{A numeric vector of size n representing the post-treatment variable.}
 
 \item{copula_type}{A character string indicating the type of copula to be
 used. Defaults to "independent". Other options are "gaussian" and "fgm".}
 
 \item{rho}{A numeric value between -1 and 1 representing the correlation
-parameter for copula models. Default is 0 (for independence).}
+coefficient for copula models. Default is 0 (for independence).}
 }
 \value{
 A matrix of size (\eqn{n_{s1}}, n).
 }
 \description{
-This function computes a component of an integral related to the copula-based
-modeling framework. It involves calculating a weighted sum over s0, using the
-given copula and correlation parameters. The result is used in the context of
-a model that involves score-based functions or copula-based likelihood
-estimation.
+Compute the Integral over s1
 }
 \examples{
 # Example usage of the function

@@ -36,17 +36,11 @@ A list containing two components:
 \description{
 This function computes the gradients of a specified copula (either Gaussian
 or FGM) with respect to both components `U` and `V` in a vectorized manner.
-It efficiently computes the gradients for multiple pairs of variables `U` and
-`V` simultaneously. The gradients represent the partial derivatives of the
-copula with respect to its inputs and are useful in optimization tasks, such
-as maximum likelihood estimation or sensitivity analysis.
 }
 \details{
 This function computes the gradients of different copulas
 (independent, Gaussian, and FGM) in a vectorized fashion for an array of
-inputs `U` and `V`. It efficiently handles the computation for multiple
-variable pairs simultaneously, which can be crucial for high-dimensional
-tasks.
+inputs `U` and `V`.
 
 For the independent copula, the gradients are zero as there is no dependence
 between `U` and `V`. For the Gaussian and FGM copulas, the gradients are

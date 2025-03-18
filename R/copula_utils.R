@@ -1,10 +1,7 @@
 #' Gaussian Copula Function
 #'
 #' This function calculates the value of a Gaussian copula given two uniform
-#' random variables and a correlation coefficient. The Gaussian copula is used
-#' to model the dependence structure between random variables, and it is defined
-#' using the inverse cumulative distribution function (quantile function) of the
-#' standard normal distribution.
+#' random variables and a correlation coefficient.
 #'
 #' @param u A numeric vector or matrix of uniform random variables (u_i ∈ [0,
 #'   1]). Each value in `u` represents a univariate uniform random variable.
@@ -52,9 +49,7 @@ gaussian_copula_function <- function(u, v, rho) {
 #' Farlie-Gumbel-Morgenstern (FGM) Copula Function
 #'
 #' This function computes the value of the Farlie-Gumbel-Morgenstern (FGM)
-#' copula given two uniform random variables and a correlation parameter. The
-#' FGM copula is a simple bivariate copula model used to describe dependence
-#' between two random variables.
+#' copula given two uniform random variables and a correlation parameter.
 #'
 #' @param u A numeric vector or matrix of uniform random variables (u_i ∈ [0,
 #'   1]). Each value in `u` represents a univariate uniform random variable.
@@ -215,10 +210,7 @@ copula_function_vectorized <- function(U,
 #' Gradient of the Gaussian Copula
 #'
 #' This function computes the gradients of the Gaussian copula with respect to
-#' both components `u` and `v`. The gradients represent how sensitive the copula
-#' values are to changes in `u` and `v`. These gradients are useful in various
-#' optimization and modeling tasks, such as in maximum likelihood estimation for
-#' copula-based models.
+#' both components `u` and `v`.
 #'
 #' @param u A numeric vector of uniform random variables representing the first
 #'   set of inputs. The values must be in the range (0, 1).
@@ -236,8 +228,7 @@ copula_function_vectorized <- function(U,
 #' @details The gradient of the Gaussian copula is calculated with respect to
 #' both `u` and `v`. For each element of `u` and `v`, the function computes the
 #' partial derivatives of the Gaussian copula with respect to the first and
-#' second inputs, respectively. This is useful when working with the Gaussian
-#' copula in optimization algorithms or when performing sensitivity analysis.
+#' second inputs, respectively.
 #'
 #' The gradients are computed as follows: \deqn{c_u = \frac{\partial
 #' C(u,v)}{\partial u} = \frac{C(u,v) \cdot \left( \rho y_v - \rho^2 x_u
@@ -274,11 +265,7 @@ gaussian_copula_gradient <- function(u, v, rho) {
 #' Gradient of the FGM Copula
 #'
 #' This function computes the gradients of the FGM (Farlie-Gumbel-Morgenstern)
-#' copula with respect to both components `u` and `v`. The gradients represent
-#' how sensitive the copula values are to changes in `u` and `v`. These
-#' gradients are useful in various optimization tasks, such as in maximum
-#' likelihood estimation for copula-based models or other applications involving
-#' copula gradients.
+#' copula with respect to both components `u` and `v`.
 #'
 #' @param u A numeric vector of uniform random variables representing the first
 #'   set of inputs. The values must be in the range (0, 1).
@@ -296,8 +283,7 @@ gaussian_copula_gradient <- function(u, v, rho) {
 #' @details The gradient of the FGM copula is calculated with respect to both
 #' `u` and `v`. For each element of `u` and `v`, the function computes the
 #' partial derivatives of the FGM copula with respect to the first and second
-#' inputs, respectively. This is useful when working with the FGM copula in
-#' optimization algorithms or sensitivity analysis.
+#' inputs, respectively.
 #'
 #' The gradients are computed as follows: \deqn{c_u = \frac{\partial
 #' C(u,v)}{\partial u} = -2 \rho (1 - 2v)} \deqn{c_v = \frac{\partial
@@ -330,10 +316,6 @@ fgm_copula_gradient <- function(u, v, rho) {
 #'
 #' This function computes the gradients of a specified copula (either Gaussian
 #' or FGM) with respect to both components `U` and `V` in a vectorized manner.
-#' It efficiently computes the gradients for multiple pairs of variables `U` and
-#' `V` simultaneously. The gradients represent the partial derivatives of the
-#' copula with respect to its inputs and are useful in optimization tasks, such
-#' as maximum likelihood estimation or sensitivity analysis.
 #'
 #' @param U A numeric matrix of uniform random variables representing the first
 #'   set of inputs. The values must be in the range (0, 1).
@@ -359,9 +341,7 @@ fgm_copula_gradient <- function(u, v, rho) {
 #'
 #' @details This function computes the gradients of different copulas
 #' (independent, Gaussian, and FGM) in a vectorized fashion for an array of
-#' inputs `U` and `V`. It efficiently handles the computation for multiple
-#' variable pairs simultaneously, which can be crucial for high-dimensional
-#' tasks.
+#' inputs `U` and `V`.
 #'
 #' For the independent copula, the gradients are zero as there is no dependence
 #' between `U` and `V`. For the Gaussian and FGM copulas, the gradients are

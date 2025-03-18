@@ -1,11 +1,7 @@
-#' Vectorized Weighting Function
+#' Vectorized Identity Weighting Function
 #'
 #' This function generates a matrix of weights where each entry is set to 1,
-#' representing a simple weighting scheme. It computes the matrix in a
-#' vectorized fashion, efficiently handling multiple input sizes. The function
-#' is primarily useful when a constant weight (1) is required between two sets
-#' of values, such as in certain copula-related calculations or in exploratory
-#' data analysis.
+#' representing a simple weighting scheme.
 #'
 #' @param s1 A numeric vector representing the first set of input values (e.g.,
 #'   one dimension of the data).
@@ -34,10 +30,7 @@ identity_weighting_function_vectorized <- function(s1, s0) {
 #' Vectorized G Function
 #'
 #' This function constructs a three-dimensional array by combining three
-#' matrices. The resulting array can be used in various multi-dimensional data
-#' processing or for computing interactions between two sets of input vectors.
-#' The function utilizes vectorized operations for efficiency, making it
-#' suitable for large datasets.
+#' matrices.
 #'
 #' @param s1 A numeric vector of length `n_s1` representing the first set of
 #'   input values.
@@ -56,10 +49,6 @@ identity_weighting_function_vectorized <- function(s1, s0) {
 #' components: 1. A matrix where each element of `s1` is repeated for each value
 #' in `s0`. 2. A matrix where each element of `s0` is repeated for each value in
 #' `s1`. 3. A matrix filled with ones, serving as a constant dimension.
-#'
-#' This operation can be useful in scenarios where multi-dimensional
-#' interactions or transformations of two sets of data are required, such as in
-#' copula or statistical modeling.
 #'
 #' @examples
 #' # Example: Create a 3D array combining two vectors
@@ -83,9 +72,9 @@ identity_g_function_vectorized <- function(s1, s0) {
   )), along = 3))
 }
 
-#' Principal Score Prediction (Vectorized)
+#' Principal Density Model (Vectorized)
 #'
-#' This function performs vectorized prediction of principal scores based on a
+#' This function performs vectorized prediction of principal densities based on a
 #' given bandwidth object and predictor variables. It uses the kernel density
 #' estimation function `npcdens` from the `np` package to predict the target
 #' variable given a set of predictors.
@@ -143,7 +132,7 @@ principal_score_predict_vectorized <- function(bw, S, X) {
   )))
 }
 
-#' Vectorized Function for Linear Model Prediction
+#' Vectorized Function for Outcome Model
 #'
 #' This function performs vectorized predictions of the target variable based on
 #' a given linear model (`lm_model`) and predictor variables. It applies the

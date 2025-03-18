@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{principal_score_predict_vectorized}
 \alias{principal_score_predict_vectorized}
-\title{Principal Score Prediction (Vectorized)}
+\title{Principal Density Model (Vectorized)}
 \usage{
 principal_score_predict_vectorized(bw, S, X)
 }
@@ -22,7 +22,7 @@ A numeric matrix of predicted values with dimensions (\eqn{n_s},  n),
   where each row corresponds to predictions for the respective values in S.
 }
 \description{
-This function performs vectorized prediction of principal scores based on a
+This function performs vectorized prediction of principal densities based on a
 given bandwidth object and predictor variables. It uses the kernel density
 estimation function `npcdens` from the `np` package to predict the target
 variable given a set of predictors.

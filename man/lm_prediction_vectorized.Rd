@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{lm_prediction_vectorized}
 \alias{lm_prediction_vectorized}
-\title{Vectorized Function for Linear Model Prediction}
+\title{Vectorized Function for Outcome Model}
 \usage{
 lm_prediction_vectorized(lm_model, S, X)
 }

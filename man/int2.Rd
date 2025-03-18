@@ -2,7 +2,7 @@
 % Please edit documentation in R/eif_estimator_utils.R
 \name{int2}
 \alias{int2}
-\title{Conditional Integral Calculation for Copula Models}
+\title{Compute the Double Integration}
 \usage{
 int2(
   s1,
@@ -41,20 +41,17 @@ cumulative distribution function (CDF) of s1.}
 \item{psp_s0_cdf}{A matrix of size (\eqn{n_{s0}}, n) representing the
 cumulative distribution function (CDF) of s0.}
 
-\item{Z}{A numeric vector of size n  representing the first condition (e.g.,
-treatment assignment indicator).}
+\item{Z}{A numeric vector of size n representing the treatment assignment indicator.}
 
-\item{Tp}{A numeric value representing the total probability for the positive
-outcome (e.g., treatment or event probability).}
+\item{Tp}{A numeric value representing the fitted treatment probability.}
 
-\item{S}{A numeric vector of size n , typically representing time or a
-sequential index (used in conjunction with `Z`).}
+\item{S}{A numeric vector of size n representing the post-treatment variable.}
 
 \item{copula_type}{A character string indicating the type of copula to be
 used. Defaults to "independent". Other options are "gaussian" and "fgm".}
 
 \item{rho}{A numeric value between -1 and 1 representing the correlation
-parameter for copula models. Default is 0 (for independence).}
+coefficient for copula models. Default is 0 (for independence).}
 }
 \value{
 A numeric array of size (\eqn{n_{s1}}, \eqn{n_{s0}}, n), representing
@@ -62,19 +59,10 @@ A numeric array of size (\eqn{n_{s1}}, \eqn{n_{s0}}, n), representing
   applying the integral calculations.
 }
 \description{
-This function computes a conditional integral based on a copula model,
-typically used in financial or econometric models involving copula-based
-dependencies.
+This function computes the double integral for eif estimator construction.
 }
 \details{
-The function computes the conditional integral for a copula-based
-model with specified dependencies between `s1` and `s0`. It incorporates the
-given probability values for both `s1` and `s0`, their CDFs, and joint
-probabilities. It also applies the specified copula (independent, gaussian,
-or fgm) to model dependencies between the variables. The integral is
-calculated through a series of matrix operations, utilizing the copula
-function, its gradient, and expansions for handling interactions between the
-variables.
+The function computes the double integral for eif estimator construction.
 
 Specifically:
 - The function calculates the copula weights (`l1_B`) and the copula gradient.

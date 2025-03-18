@@ -25,18 +25,13 @@ A list containing two components:
 }
 \description{
 This function computes the gradients of the FGM (Farlie-Gumbel-Morgenstern)
-copula with respect to both components `u` and `v`. The gradients represent
-how sensitive the copula values are to changes in `u` and `v`. These
-gradients are useful in various optimization tasks, such as in maximum
-likelihood estimation for copula-based models or other applications involving
-copula gradients.
+copula with respect to both components `u` and `v`.
 }
 \details{
 The gradient of the FGM copula is calculated with respect to both
 `u` and `v`. For each element of `u` and `v`, the function computes the
 partial derivatives of the FGM copula with respect to the first and second
-inputs, respectively. This is useful when working with the FGM copula in
-optimization algorithms or sensitivity analysis.
+inputs, respectively.
 
 The gradients are computed as follows: \deqn{c_u = \frac{\partial
 C(u,v)}{\partial u} = -2 \rho (1 - 2v)} \deqn{c_v = \frac{\partial

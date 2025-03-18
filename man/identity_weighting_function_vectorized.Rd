@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{identity_weighting_function_vectorized}
 \alias{identity_weighting_function_vectorized}
-\title{Vectorized Weighting Function}
+\title{Vectorized Identity Weighting Function}
 \usage{
 identity_weighting_function_vectorized(s1, s0)
 }
@@ -19,11 +19,7 @@ A numeric array with dimensions `length(s1) x length(s0)`. All values
 }
 \description{
 This function generates a matrix of weights where each entry is set to 1,
-representing a simple weighting scheme. It computes the matrix in a
-vectorized fashion, efficiently handling multiple input sizes. The function
-is primarily useful when a constant weight (1) is required between two sets
-of values, such as in certain copula-related calculations or in exploratory
-data analysis.
+representing a simple weighting scheme.
 }
 \examples{
 # Example: Generate a weighting matrix for two input vectors

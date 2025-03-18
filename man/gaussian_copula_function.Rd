@@ -23,10 +23,7 @@ A numeric vector or matrix of copula values corresponding to the
 }
 \description{
 This function calculates the value of a Gaussian copula given two uniform
-random variables and a correlation coefficient. The Gaussian copula is used
-to model the dependence structure between random variables, and it is defined
-using the inverse cumulative distribution function (quantile function) of the
-standard normal distribution.
+random variables and a correlation coefficient.
 }
 \details{
 The Gaussian copula captures the dependency between random
